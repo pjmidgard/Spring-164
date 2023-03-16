@@ -358,13 +358,13 @@ class compression:
                                     	    #print(s1)
                                     	    #print(s2)
                                     	    e3=format(count4,"016b") 
-                                    	    e3=e3[0:2] 
+                                    	    e3=e3[0:1] 
                                     	    #print(e3)
                                     	    
                                     	    if count4==((2**16)-1):
                                     	    	count4=0
       
-                                    	    if e4[0:2]==e3 and len(e4)==1024 and count1<2**32 and count2<2**32:
+                                    	    if e4[0:1]==e3 and len(e4)==1024 and count1<2**32 and count2<2**32:
                                     	    	e3="0"+e4[2:]
                                     	    	sda3+=e3
                                     	    	block3+=1024
