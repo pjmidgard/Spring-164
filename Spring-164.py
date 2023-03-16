@@ -365,12 +365,12 @@ class compression:
                                     	    if count4==((2**16)-1):
                                     	    	count4=0
       
-                                    	    if e4[0:1]=="0" and len(e4)==8 and count1<2**8 and count2<2**8:
+                                    	    if e4[0:1]=="0" and count1<2**8 and count2<2**8:
                                     	    	e3=e4[1:]
                                     	    	sda3+=e3
                                     	    	block3+=8
                                     	    	#print(e3)
-                                    	    elif len(e4)!=1024:
+                                    	    else:
                                     	    	sda3+=e6
                                     	    	block3+=8
                                     	
