@@ -347,7 +347,7 @@ class compression:
                                     while block3<lenf2:
                                     	    count4+=1
                                     	    count2+=1
-                                    	    if count1<(2**8)-1:
+                                    	    if count1<(2**32)-1:
                                     	    	count1+=1
                                     	    e4=sda2[block3:block3+8]
                                     	    e6=e4
@@ -365,10 +365,10 @@ class compression:
                                     	    e3=e3[0:4] 
                                     	    #print(e3)
                                     	    
-                                    	    if count4==((2**16)-1):
+                                    	    if count4==((2**3)-1):
                                     	    	count4=0
       
-                                    	    if e4[0:1]=="0" and count1<2**8 and count2<2**8:
+                                    	    if e4[0:1]=="0" and count1<2**32 and count2<2**32 and count4==4:
                                     	    	e3=e4[1:]
                                     	    	sda3+=e3
                                     	    	block3+=8
@@ -379,7 +379,7 @@ class compression:
                                     	
              
                                     e7=format(count3,"016b")    
-                                    e5=format(count1,"08b")
+                                    e5=format(count1,"032b")
                                     #print(e5)
                                     count1=0
                                     count2=0
@@ -396,8 +396,9 @@ class compression:
                                             	       z=z+1
                                     sda3=add_bits+sda3                 	
                                     sda3=e5+sda3 
+                                    #print(len(sda3))
                                     
-                                    if len(sda3)<=320 or count3==(2**16)-1:
+                                    if len(sda3)<=4000 or count3==(2**16)-1:
                                     	count6=1
                                     	sda3=e7+sda3
                                     sda2=sda3
@@ -432,6 +433,10 @@ class compression:
                                     if count6==1:
                                             assx=10
                                             if assx==10:
+                                               
+                                               
+                                               import paq
+                                               jl= paq.compress(jl)
                                                
                                               
    											
