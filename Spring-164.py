@@ -344,9 +344,9 @@ class compression:
                                     while block3<lenf2:
                                     	    count4+=1
                                     	    count2+=1
-                                    	    if count1<2**40:
+                                    	    if count1<(2**8)-1:
                                     	    	count1+=1
-                                    	    e4=sda2[block3:block3+1024]
+                                    	    e4=sda2[block3:block3+8]
                                     	    e6=e4
                                     	    
                                     	  
@@ -354,29 +354,30 @@ class compression:
                                     	    
                                     	   
                                     	    e4=e4[0:2][::-1]+e4[:2]+e4[2:]
-                                    	    e4=e4[0:1024]
+                                    	    e4=e4[0:8]
                                     	    #print(e4)
                                     	    #print(s1)
                                     	    #print(s2)
                                     	    e3=format(count4,"016b") 
-                                    	    e3=e3[0:8] 
+                                    	    e3=e3[0:4] 
                                     	    #print(e3)
                                     	    
                                     	    if count4==((2**16)-1):
                                     	    	count4=0
       
-                                    	    if e4[0:8]==e3 and len(e4)==1024 and count1<2**40 and count2<2**40:
-                                    	    	e3="0"+e4[8:]
+                                    	    if e4[0:4]==e3 and len(e4)==8 and count1<2**8 and count2<2**8:
+                                    	    	e3="0"+e4[4:]
                                     	    	sda3+=e3
-                                    	    	block3+=1024
+                                    	    	block3+=8
                                     	    	#print(e3)
                                     	    elif len(e4)!=1024:
                                     	    	sda3+=e6
-                                    	    	block3+=1024
+                                    	    	block3+=8
                                     	
 
                                               
-                                    e5=format(count1,"040b")
+                                    e5=format(count1,"08b")
+                                    #print(e5)
                                     count1=0
                                     count2=0
                                     count4=0
