@@ -425,10 +425,8 @@ class compression:
                                     if assxw==100:
                                             assx=10
                                             if assx==10:
-                                                 
-
-                                                 
-                                            
+                                               import paq
+                                               jl= paq.compress(jl)
                                               
    											
                                                
