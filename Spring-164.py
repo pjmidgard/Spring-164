@@ -344,15 +344,16 @@ class compression:
                                     while block3<lenf2:
                                     	    count4+=1
                                     	    count2+=1
-                                    	    if count1<2**48:
+                                    	    if count1<2**40:
                                     	    	count1+=1
                                     	    e4=sda2[block3:block3+1024]
+                                    	    e6=e4
                                     	    
                                     	  
                                     	    	
                                     	    
                                     	   
-                                    	    e4=e4[0:8][::-1]+e4[:8]+e4[8:]
+                                    	    e4=e4[0:2][::-1]+e4[:2]+e4[2:]
                                     	    e4=e4[0:1024]
                                     	    #print(e4)
                                     	    #print(s1)
@@ -364,19 +365,21 @@ class compression:
                                     	    if count4==((2**16)-1):
                                     	    	count4=0
       
-                                    	    if e4[0:8]==e3 and len(e4)==1024 and count1<2**48 and count2<2**48:
+                                    	    if e4[0:8]==e3 and len(e4)==1024 and count1<2**40 and count2<2**40:
                                     	    	e3="0"+e4[8:]
                                     	    	sda3+=e3
                                     	    	block3+=1024
                                     	    	#print(e3)
                                     	    elif len(e4)!=1024:
-                                    	    	sda3+=e4
-                                    	    	sda3+=1024
+                                    	    	sda3+=e6
+                                    	    	block3+=1024
                                     	
 
                                               
-                                    e5=format(count1,"048b")
+                                    e5=format(count1,"040b")
                                     count1=0
+                                    count2=0
+                                    count4=0
                                     sda3="1"+sda3
                                     lenf=len(sda3)
                                     add_bits=""
@@ -418,7 +421,7 @@ class compression:
 
                                         
                                     assxw=assxw+1
-                                    if assxw==1:
+                                    if assxw==100:
                                             assx=10
                                             if assx==10:
                                                  
