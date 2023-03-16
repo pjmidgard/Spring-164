@@ -255,6 +255,7 @@ class compression:
                         count2=0
                         count3=0
                         count4=0
+                        count6=0
               
 
                         assxw=0
@@ -338,6 +339,8 @@ class compression:
                                     lenf2=len(sda2)  
                                     block3=0
                                     sda3=""
+                                    
+                                    count3+=1
                                    
 
                                     
@@ -374,8 +377,8 @@ class compression:
                                     	    	sda3+=e6
                                     	    	block3+=8
                                     	
-
-                                              
+             
+                                    e7=format(count3,"016b")    
                                     e5=format(count1,"08b")
                                     #print(e5)
                                     count1=0
@@ -393,6 +396,10 @@ class compression:
                                             	       z=z+1
                                     sda3=add_bits+sda3                 	
                                     sda3=e5+sda3 
+                                    
+                                    if len(sda3)<=320 or count3==(2**16)-1:
+                                    	count6=1
+                                    	sda3=e7+sda3
                                     sda2=sda3
                                     
                                     n = int(sda3, 2)
@@ -422,11 +429,10 @@ class compression:
 
                                         
                                     assxw=assxw+1
-                                    if assxw==100:
+                                    if count6==1:
                                             assx=10
                                             if assx==10:
-                                               import paq
-                                               jl= paq.compress(jl)
+                                               
                                               
    											
                                                
