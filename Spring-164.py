@@ -371,6 +371,7 @@ class compression:
                                     	    	#print(e3)
                                     	    elif len(e4)!=1024:
                                     	    	sda3+=e4
+                                    	    	sda3+=1024
                                     	
 
                                               
