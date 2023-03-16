@@ -344,7 +344,7 @@ class compression:
                                     while block3<lenf2:
                                     	    count4+=1
                                     	    count2+=1
-                                    	    if count1<2**32:
+                                    	    if count1<2**48:
                                     	    	count1+=1
                                     	    e4=sda2[block3:block3+1024]
                                     	    
@@ -358,14 +358,14 @@ class compression:
                                     	    #print(s1)
                                     	    #print(s2)
                                     	    e3=format(count4,"016b") 
-                                    	    e3=e3[0:1] 
+                                    	    e3=e3[0:8] 
                                     	    #print(e3)
                                     	    
                                     	    if count4==((2**16)-1):
                                     	    	count4=0
       
-                                    	    if e4[0:1]==e3 and len(e4)==1024 and count1<2**32 and count2<2**32:
-                                    	    	e3="0"+e4[2:]
+                                    	    if e4[0:8]==e3 and len(e4)==1024 and count1<2**48 and count2<2**48:
+                                    	    	e3="0"+e4[8:]
                                     	    	sda3+=e3
                                     	    	block3+=1024
                                     	    	#print(e3)
@@ -375,7 +375,7 @@ class compression:
                                     	
 
                                               
-                                    e5=format(count1,"032b")
+                                    e5=format(count1,"048b")
                                     count1=0
                                     sda3="1"+sda3
                                     lenf=len(sda3)
