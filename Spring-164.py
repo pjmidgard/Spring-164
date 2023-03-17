@@ -394,7 +394,7 @@ class compression:
                                     	    	if count4==4:
                                     	    		sda3+=e4[2:]
                                     	    	elif count4!=4:
-                                    	        	sda3+=e4[3:][::-1]
+                                    	        	sda3+=e4[3:]
                                     	    	if count4==4:
                                     	    		sda5+="0"
                                     	    		sda8+="0"
@@ -412,7 +412,7 @@ class compression:
                                     	    		sda8+="0"
                                     	    	elif count4!=4:
                                     	    		                                    	    												 sda5+="0"
-                                    	    		                                    	    												 sda8+="1"+e4[2:3][::-1]
+                                    	    		                                    	    												 sda8+="1"+e4[2:3]
                                     	    		                                    	    												 
                                     	    	block3+=8
                                     	    	#print("10")
@@ -421,14 +421,14 @@ class compression:
                                     	    	if count4==4:
                                     	    		sda3+=e4[2:]
                                     	    	elif count4!=4:
-                                    	        	sda3+=e4[3:][::-1]
+                                    	        	sda3+=e4[3:]
                                     	        
                                     	    	if count4==4:
                                     	    		sda5+="0"
                                     	    		sda8+="1"
                                     	    	elif count4!=4:
                                     	    		sda5+="0"
-                                    	    		sda8+="0"+e4[2:3][::-1]
+                                    	    		sda8+="0"+e4[2:3]
                                     	    
                                     	    	block3+=8
                                     	
