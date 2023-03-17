@@ -450,10 +450,7 @@ class compression:
                                     qqwslenf="%0"+qqwslenf+"x"
                                  
                                     jl=binascii.unhexlify(qqwslenf % n)
-                                    import paq
-                                    jl= paq.compress(jl)
-
-                                               
+                                         
                                     #print(len(jl))
                                     
                                     
@@ -478,7 +475,8 @@ class compression:
                                     if assxw==2:
                                             assx=10
                                             if assx==10:
-                                               
+                                               import paq
+                                               jl= paq.compress(jl)      
    											
                                                
                                                f2.write(jl)
