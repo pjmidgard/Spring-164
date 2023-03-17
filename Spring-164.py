@@ -480,8 +480,8 @@ class compression:
                                     if assxw==97:
                                             assx=10
                                             if assx==10:
-                                            	import paq
-                                            	jl= paq.compress(jl)   
+                                               import paq
+                                               jl= paq.compress(jl)   
                                                  
    											
                                                
