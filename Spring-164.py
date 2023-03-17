@@ -357,9 +357,10 @@ class compression:
                                     	    	
                                     	    
                                     	   
-                                    	    e10=e4[0:2][::-1]+e4[2:]
+                                    	    e10=e4[1:3][::-1]+e4[3:4]+e4[4:]
                                     	    #print(e10)
                                     	    e4=e10
+ 
                                     	    #print(e4)
                                     	    #print(s1)
                                     	    #print(s2)
@@ -371,12 +372,15 @@ class compression:
                                     	    	count4=0
       
                                     	    if e4[0:1]=="0":
-                                    	    	e4="1"+e4[1:]
+                                    	    	e4="1"+e4[1:][::-1]
                                     	    	sda3+=e4
                                     	    	block3+=8
                                     	    	#print(e4)
                                     	    else:
-                                    	    	sda3+="0"+e6[1:]
+                                    	    	sda3+="0"+e4[1:]
+                                    	    	
+                                    	    		
+                                    	    
                                     	    	block3+=8
                                     	
              
