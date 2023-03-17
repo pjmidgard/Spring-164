@@ -385,8 +385,8 @@ class compression:
                                     	    		count4=1
                                     	    
                                     	    	elif count4!=4:
-                                    	    		                                    	    												 sda5+="1"
-                                    	    		                                    	    												 sda8+="1"+e4[2:3]                                    	        
+                                    	    		sda5+="1"
+                                    	    		sda8+="1"+e4[2:3]                                    	        
                                     	        
                                     	    	block3+=8      
 
@@ -401,8 +401,8 @@ class compression:
                                     	    		count4=1
                                     	  
                                     	    	elif count4!=4:
-                                    	    		                                    	    												 sda5+="1"
-                                    	    		                                    	    												 sda8+="0"                        	   
+                                    	    		sda5+="1"
+                                    	    		sda8+="0"                        	   
                                     	    	block3+=8                                    	                                      	    	
                                     	    elif e4[0:2]=="00":
                                     	    	if count4==4:
@@ -414,8 +414,8 @@ class compression:
                                     	    		count4=1
                                     	    	
                                     	    	elif count4!=4:
-                                    	    		                                    	    												 sda5+="0"
-                                    	    		                                    	    												 sda8+="1"
+                                    	    	        sda5+="0"
+                                    	    	        sda8+="1"
                                     	    		                                    	    												 
                                     	    	block3+=8
                                     	    	#print("10")
