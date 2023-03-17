@@ -254,7 +254,7 @@ class compression:
                         count1=12
                         count2=0
                         count3=0
-                        count4=0
+                        count4=1
                         count6=0
               
 
@@ -453,7 +453,8 @@ class compression:
                                     qqwslenf=str(qqwslenf)
                                     qqwslenf="%0"+qqwslenf+"x"
                                  
-                                    jl=binascii.unhexlify(qqwslenf % n) 
+                                    jl=binascii.unhexlify(qqwslenf % n)
+                             
                                  
                              
                                          
@@ -478,12 +479,11 @@ class compression:
 
                                         
                                     assxw=assxw+1
-                                    if assxw==9:
+                                    if assxw==20:
                                             assx=10
                                             if assx==10:
                                                import paq
-                                               jl= paq.compress(jl)   
-   											
+                                               jl= paq.compress(jl) 
                                                
                                                f2.write(jl)
                                                x2 = time()
