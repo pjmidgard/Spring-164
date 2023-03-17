@@ -381,7 +381,7 @@ class compression:
                                     	    	elif count4!=4:
                                     	        	sda3+=e4[3:]
                                     	    	if count4==4:
-                                    	    		sda5+="0"
+                                    	    		sda5+="1"
                                     	    		count4=1
                                     	    
                                     	    	elif count4!=4:
@@ -427,7 +427,7 @@ class compression:
                                     	        	sda3+=e4[2:]
                                     	        
                                     	    	if count4==4:
-                                    	    		sda8+="1"
+                                    	    		sda8+="0"
                                     	    		count4=1
                                     	    	
                                     	    	elif count4!=4:
@@ -454,6 +454,7 @@ class compression:
                                     qqwslenf="%0"+qqwslenf+"x"
                                  
                                     jl=binascii.unhexlify(qqwslenf % n) 
+                                 
                              
                                          
                                     #print(len(jl))
@@ -477,12 +478,11 @@ class compression:
 
                                         
                                     assxw=assxw+1
-                                    if assxw==97:
+                                    if assxw==9:
                                             assx=10
                                             if assx==10:
                                                import paq
                                                jl= paq.compress(jl)   
-                                                 
    											
                                                
                                                f2.write(jl)
