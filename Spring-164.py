@@ -339,6 +339,8 @@ class compression:
                                     lenf2=len(sda2)  
                                     block3=0
                                     sda3=""
+                                    sda5=""
+                                    sda8=""
                                     
                                     count3+=1
                                    
@@ -357,9 +359,9 @@ class compression:
                                     	    	
                                     	    
                                     	   
-                                    	    e10=e4[1:3][::-1]+e4[3:4]+e4[4:]
+                                    	    e10=e4[:3]+e4[3:5][::-1]+e4[5:]
                                     	    #print(e10)
-                                    	    e4=e10
+                                    	    e4=e10[::-1]
  
                                     	    #print(e4)
                                     	    #print(s1)
@@ -368,18 +370,65 @@ class compression:
                                     	  
                                     	    #print(e3)
                                     	    
-                                    	    if count4==((2**3)-1):
+                                    	    if count4==((2**4)-1):
                                     	    	count4=0
-      
-                                    	    if e4[0:1]=="0":
-                                    	    	e4="1"+e4[1:][::-1]
-                                    	    	sda3+=e4
+
+                                    	    	                                    	     
+                                    	    if e4[0:2]=="01":
+                                    
+                                    	    	if count4==4:
+                                    	    		sda3+=e4[2:]
+                                    	    	elif count4!=4:
+                                    	        	sda3+=e4[3:]
+                                    	    	if count4==4:
+                                    	    		sda5+="1"
+                                    	    		sda8+="1"
+                                    	    	elif count4!=4:
+                                    	    		                                    	    												 sda5+="1"
+                                    	    		                                    	    												 sda8+="1"+e4[2:3]                                    	        
+                                    	        
+                                    	    	block3+=8      
+
+                                   	                                      	    	    
+                                    	    elif e4[0:2]=="10":
+                                    	    	if count4==4:
+                                    	    		sda3+=e4[2:]
+                                    	    	elif count4!=4:
+                                    	        	sda3+=e4[3:][::-1]
+                                    	    	if count4==4:
+                                    	    		sda5+="0"
+                                    	    		sda8+="0"
+                                    	    	elif count4!=4:
+                                    	    		                                    	    												 sda5+="0"
+                                    	    		                                    	    												 sda8+="1"+e4[2:3]                                    	   
+                                    	    	block3+=8                                    	                                      	    	
+                                    	    elif e4[0:2]=="00":
+                                    	    	if count4==4:
+                                    	    		sda3+=e4[2:]
+                                    	    	elif count4!=4:
+                                    	        	sda3+=e4[3:]
+                                    	    	if count4==4:
+                                    	    		sda5+="1"
+                                    	    		sda8+="0"
+                                    	    	elif count4!=4:
+                                    	    		                                    	    												 sda5+="0"
+                                    	    		                                    	    												 sda8+="1"+e4[2:3][::-1]
+                                    	    		                                    	    												 
                                     	    	block3+=8
+                                    	    	#print("10")
                                     	    	#print(e4)
                                     	    else:
-                                    	    	sda3+="0"+e4[1:]
-                                    	    	
-                                    	    		
+                                    	    	if count4==4:
+                                    	    		sda3+=e4[2:]
+                                    	    	elif count4!=4:
+                                    	        	sda3+=e4[3:][::-1]
+                                    	        
+                                    	    	if count4==4:
+                                    	    		sda5+="0"
+                                    	    		sda8+="1"
+                                    	    	elif count4!=4:
+                                    	    		sda5+="0"
+                                    	    		sda8+="0"+e4[2:3][::-1]
                                     	    
                                     	    	block3+=8
                                     	
@@ -388,7 +437,7 @@ class compression:
                                    
                                     #print(e5)
           	
-                                    sda3=sda3 
+                                    sda3=sda5+sda3+sda8
                                     #print(len(sda3))
                                     
                                     sda2=sda3
@@ -401,6 +450,10 @@ class compression:
                                     qqwslenf="%0"+qqwslenf+"x"
                                  
                                     jl=binascii.unhexlify(qqwslenf % n)
+                                    import paq
+                                    jl= paq.compress(jl)
+
+                                               
                                     #print(len(jl))
                                     
                                     
@@ -422,15 +475,10 @@ class compression:
 
                                         
                                     assxw=assxw+1
-                                    if assxw==1:
+                                    if assxw==2:
                                             assx=10
                                             if assx==10:
                                                
-                                               
-                                               import paq
-                                               jl= paq.compress(jl)
-                                               
-                                              
    											
                                                
                                                f2.write(jl)
