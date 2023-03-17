@@ -369,12 +369,12 @@ class compression:
                                     	    	count4=0
       
                                     	    if e4[0:1]=="0" and count1<2**32 and count2<2**32 and count4==4:
-                                    	    	e3=e4[1:]
+                                    	    	e3+"1"+e4[1:]
                                     	    	sda3+=e3
                                     	    	block3+=8
                                     	    	#print(e3)
                                     	    else:
-                                    	    	sda3+=e6
+                                    	    	sda3+="0"+e6[1:]
                                     	    	block3+=8
                                     	
              
@@ -395,12 +395,9 @@ class compression:
                                             	       add_bits="0"+add_bits
                                             	       z=z+1
                                     sda3=add_bits+sda3                 	
-                                    sda3=e5+sda3 
+                                    sda3=sda3 
                                     #print(len(sda3))
                                     
-                                    if len(sda3)<=4000 or count3==(2**16)-1:
-                                    	count6=1
-                                    	sda3=e7+sda3
                                     sda2=sda3
                                     
                                     n = int(sda3, 2)
@@ -430,7 +427,7 @@ class compression:
 
                                         
                                     assxw=assxw+1
-                                    if count6==1:
+                                    if assxw==1:
                                             assx=10
                                             if assx==10:
                                                
