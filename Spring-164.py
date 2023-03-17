@@ -368,7 +368,7 @@ class compression:
                                     	    if count4==((2**3)-1):
                                     	    	count4=0
       
-                                    	    if e4[0:1]=="0" and count1<2**32 and count2<2**32:
+                                    	    if e4[0:1]=="0":
                                     	    	e4="1"+e4[1:]
                                     	    	sda3+=e4
                                     	    	block3+=8
@@ -378,23 +378,10 @@ class compression:
                                     	    	block3+=8
                                     	
              
-                                    e7=format(count3,"016b")    
-                                    e5=format(count1,"032b")
+                                    
+                                   
                                     #print(e5)
-                                    count1=0
-                                    count2=0
-                                    count4=0
-                                    sda3="1"+sda3
-                                    lenf=len(sda3)
-                                    add_bits=""
-                                    count_bits=8-lenf%8
-                                    z=0
-                                    if count_bits!=0:
-                                        if count_bits!=8:
-                                            while z<count_bits:
-                                            	       add_bits="0"+add_bits
-                                            	       z=z+1
-                                    sda3=add_bits+sda3                 	
+          	
                                     sda3=sda3 
                                     #print(len(sda3))
                                     
@@ -408,6 +395,8 @@ class compression:
                                     qqwslenf="%0"+qqwslenf+"x"
                                  
                                     jl=binascii.unhexlify(qqwslenf % n)
+                                    #print(len(jl))
+                                    
                                     
        
 
