@@ -361,16 +361,16 @@ class compression:
                                     	    #print(e4)
                                     	    #print(s1)
                                     	    #print(s2)
-                                    	    e3=format(count4,"016b") 
-                                    	    e3=e3[0:4] 
+                                    	    
+                                    	  
                                     	    #print(e3)
                                     	    
                                     	    if count4==((2**3)-1):
                                     	    	count4=0
       
                                     	    if e4[0:1]=="0" and count1<2**32 and count2<2**32 and count4==4:
-                                    	    	e3+"1"+e4[1:]
-                                    	    	sda3+=e3
+                                    	    	e4="1"+e4[1:]
+                                    	    	sda3+=e4
                                     	    	block3+=8
                                     	    	#print(e3)
                                     	    else:
