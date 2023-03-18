@@ -11,7 +11,7 @@ class compression:
         
             
     
-                self.name = "@Author: Jurijus pacalovas"
+                self.name = "@Author: Jurijus Pacalovas"
                 print(self.name)
                 if namez=="e":
                     name = input("What is name of file? ")
