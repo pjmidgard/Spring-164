@@ -15,6 +15,11 @@ class compression:
                 print(self.name)
                 if namez=="e":
                     name = input("What is name of file? ")
+                    if os.path.exists(name):
+                           print('Path is exists!')
+                    else:
+                            print('Path is not exists!')
+                            raise SystemExit                    
                     namea=""
                     namem=""
                     namema="?"
@@ -88,6 +93,9 @@ class compression:
                         
                         if lenf1>(2**32)-1:
                             print("This file is too big");
+                            raise SystemExit
+                        if lenf1==0:
+                            
                             raise SystemExit
 
                         assx=0
@@ -315,6 +323,8 @@ class compression:
                             if lenf1>(2**32)-1:
                                 print("This file is too big");
                                 raise SystemExit
+                            if lenf1==0:
+                            	raise SystemExit
                             
                             assx=0
                             
