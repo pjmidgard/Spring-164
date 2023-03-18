@@ -2,8 +2,8 @@ from time import time
 cvf=0
 import os
 import binascii
-namez = input("ul or for compress cl for extract for compress ")
-#@Author Jurijus pacalovas
+namez = input("c  for compress or e for extract: ")
+#@Author Jurijus Pacalovas
 class compression:
     def cryptograpy_compression(self):
                 
@@ -11,10 +11,11 @@ class compression:
         
             
     
-                self.name = "Written: Jurijus pacalovas"
-                if namez=="ul":
+                self.name = "@Author: Jurijus pacalovas"
+                print(self.name)
+                if namez=="e":
                     name = input("What is name of file? ")
-                    namea="file.WhiteHall"
+                    namea=""
                     namem=""
                     namema="?"
                    
@@ -244,9 +245,9 @@ class compression:
     
             
     def cryptograpy_unpack(self):                       
-                    if namez=="cl":
+                    if namez=="c":
                         name = input("What is name of file? ")
-                        namea="file.WhiteHall"
+                        namea=""
                         namem=""
                         namema="?"
                         block2=0
@@ -343,98 +344,65 @@ class compression:
                                     sda8=""
                                     
                                     count3+=1
-                                   
+                                    #######################################################Jurijus Pacalovas Program######################################################################################
+
 
                                     
                                     while block3<lenf2:
-                                    	    count4+=1
-                                    	    count2+=1
-                                    	    if count1<(2**32)-1:
-                                    	    	count1+=1
-                                    	    e4=sda2[block3:block3+8]
-                                    	    e6=e4
-                                    	    #print(e4)
-                                    	    
-                                    	  
-                                    	    	
-                                    	    
-                                    	   
-                                    	    e10=e4[:3]+e4[3:5][::-1]+e4[5:]
-                                    	    #print(e10)
-                                    	    e4=e10[::-1]
- 
-                                    	    #print(e4)
-                                    	    #print(s1)
-                                    	    #print(s2)
-                                    	    
-                                    	  
-                                    	    #print(e3)
-                                    	    
-                                    	    if count4==5:
-                                    	    	count4=0
-
-                                    	    	                                    	     
-                                    	    if e4[0:2]=="01":
-                                    
-                                    	    	if count4==4:
-                                    	    		e4=e4[1:]
-                                    	    	elif count4!=4:
-                                    	        	e4=e4[3:]
-                                    	    	if count4==4:
-                                    	    		sda3+="1"+e4
-                                    	    		count4=1
-                                    	    
-                                    	    	elif count4!=4:
-                                    	    		sda3+="11"+e4+e4[2:3]
-                                    	                                   	        
-                                    	        
-                                    	    	block3+=8      
-
-                                   	                                      	    	    
-                                    	    elif e4[0:2]=="10":
-                                    	    	if count4==4:
-                                    	    		e4=e4[1:]
-                                    	    	elif count4!=4:
-                                    	        	e4=e4[2:]
-                                    	    	if count4==4:
-                                    	    		sda3+="0"+e4
-                                    	    		count4=1
-                                    	  
-                                    	    	elif count4!=4:
-                                    	   
-                                    	    		sda3+="10"+e4                        	   
-                                    	    	block3+=8                                    	                                      	    	
-                                    	    elif e4[0:2]=="00":
-                                    	    	if count4==4:
-                                    	    		e4=e4[1:]
-                                    	    	elif count4!=4:
-                                    	        	e4=e4[2:]
-                                    	    	if count4==4:
-                                    	    		sda3+="1"+e4
-                                    	    		count4=1
-                                    	    	
-                                    	    	elif count4!=4:
-                                    	    	        sda3+="01"+e4
-                                    	    	        
-                                    	    		                                    	    												 
-                                    	    	block3+=8
-                                    	    	#print("10")
-                                    	    	#print(e4)
-                                    	    elif e4[0:2]=="11":
-                                    	    	if count4==4:
-                                    	    		e4=e4[1:]
-                                    	    	elif count4!=4:
-                                    	        	e4=e4[2:]
-                                    	        
-                                    	    	if count4==4:
-                                    	    		sda3+="0"+e4
-                                    	    		count4=1
-                                    	    	
-                                    	    	elif count4!=4:
-                                    	    		sda3+="00"+e4
-                                    	    
-                                    	    
-                                    	    	block3+=8
+                                        count4+=1
+                                        count2+=1
+                                        if count1<(2**32)-1:
+                                            count1+=1
+                                        e4=sda2[block3:block3+8]
+                                        e6=e4
+                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                        e4=e10[::-1]
+                                        if count4==5:
+                                            count4=0
+                                        if e4[0:2]=="01":
+                                            if count4==4:
+                                                e4=e4[1:]
+                                            elif count4!=4:
+                                                e4=e4[3:]
+                                            if count4==4:
+                                                sda3+="1"+e4
+                                                count4=1
+                                            elif count4!=4:
+                                                sda3+="11"+e4+e4[2:3]
+                                            block3+=8
+                                        elif e4[0:2]=="10":
+                                            if count4==4:
+                                                e4=e4[1:]
+                                            elif count4!=4:
+                                                e4=e4[2:]
+                                            if count4==4:
+                                                sda3+="0"+e4
+                                                count4=1
+                                            elif count4!=4:
+                                                sda3+="10"+e4
+                                            block3+=8
+                                        elif e4[0:2]=="00":
+                                            if count4==4:
+                                                e4=e4[1:]
+                                            elif count4!=4:
+                                                e4=e4[2:]
+                                            if count4==4:
+                                                sda3+="1"+e4
+                                                count4=1
+                                            elif count4!=4:
+                                                sda3+="01"+e4
+                                            block3+=8
+                                        elif e4[0:2]=="11":
+                                            if count4==4:
+                                                e4=e4[1:]
+                                            elif count4!=4:
+                                                e4=e4[2:]
+                                            if count4==4:
+                                                sda3+="0"+e4
+                                                count4=1
+                                            elif count4!=4:
+                                                sda3+="00"+e4
+                                            block3+=8
                                     	
              
                                     
@@ -442,34 +410,40 @@ class compression:
                                     #print(e5)
                                     
           	
-                                    sda3=sda3
                                     #print(len(sda3))
                                     
                                     sda2=sda3
-                                    
-                                    n = int(sda3, 2)
-                                    
-                                    qqwslenf=len(sda3)
-                                    qqwslenf=(qqwslenf/8)*2
-                                    qqwslenf=str(qqwslenf)
-                                    qqwslenf="%0"+qqwslenf+"x"
-                                 
-                                    jl=binascii.unhexlify(qqwslenf % n)
-      
-                                                      
-                             
-                                         
-                                    #print(len(jl))
-                                    
-                                    
-       
+                                    assxw=assxw+1
+                                    if assxw==50:
+                                        #######################################################Jurijus Pacalovas Program######################################################################################
+                                        #2**24#
 
-                  
-                                    sssssw=len(jl)
-                                    data=jl
-                                    qqqwz=qqqwz+1
-                                    szxzzza=""
-                                    szxzs=""
+
+
+                                        
+                                        n = int(sda3, 2)
+                                        
+                                        qqwslenf=len(sda3)
+                                        qqwslenf=(qqwslenf/8)*2
+                                        qqwslenf=str(qqwslenf)
+                                        qqwslenf="%0"+qqwslenf+"x"
+                                     
+                                        jl=binascii.unhexlify(qqwslenf % n)
+          
+                                                          
+                                 
+                                             
+                                        #print(len(jl))
+                                        
+                                        
+           
+
+                      
+                                        sssssw=len(jl)
+                                        data=jl
+                                        qqqwz=qqqwz+1
+                                        szxzzza=""
+                                        szxzs=""
                                  
                                   
                               
@@ -479,19 +453,19 @@ class compression:
                                         
 
                                         
-                                    assxw=assxw+1
-                                    if assxw==50:
-                                            assx=10
-                                            if assx==10:
-                                               import paq
-                                               jl= paq.compress(jl)
+                                    
+                                        assx=10
+                                        if assx==10:
+                                               
+
+                                               
                                            
                                                
-                                               f2.write(jl)
-                                               x2 = time()
-                                               x3=x2-x
-                                               return print(x3)        
-                                                                                     														    
+                                            f2.write(jl)
+                                            x2 = time()
+                                            x3=x2-x
+                                            return print(x3)        
+                                                                                  														    
                                          
 
 
