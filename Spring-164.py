@@ -247,6 +247,11 @@ class compression:
     def cryptograpy_unpack(self):                       
                     if namez=="c":
                         name = input("What is name of file? ")
+                        if os.path.exists(name):
+                           print('Path is exists!')
+                        else:
+                            print('Path is not exists!')
+                            raise SystemExit
                         namea=""
                         namem=""
                         namema="?"
