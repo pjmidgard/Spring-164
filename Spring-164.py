@@ -431,11 +431,11 @@ class compression:
                                     assxw=assxw+1
                                     if assxw==50:
                                         #######################################################Jurijus Pacalovas Exection Program######################################################################################
-                                        #2**24# 
+                                        #2**32# 
                                         block3=0
                                        
                                         varations=-1
-                                        combinations=0
+                                        combinations=-1
                                         Save_V=""
                                         Save=""
                                         V=""
