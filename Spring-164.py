@@ -377,62 +377,62 @@ class compression:
                                     	    if e4[0:2]=="01":
                                     
                                     	    	if count4==4:
-                                    	    		sda3+=e4[1:]
+                                    	    		e4=e4[1:]
                                     	    	elif count4!=4:
-                                    	        	sda3+=e4[3:]
+                                    	        	e4=e4[3:]
                                     	    	if count4==4:
-                                    	    		sda5+="1"
+                                    	    		sda3+="1"+e4
                                     	    		count4=1
                                     	    
                                     	    	elif count4!=4:
-                                    	    		sda5+="1"
-                                    	    		sda8+="1"+e4[2:3]                                    	        
+                                    	    		sda3+="11"+e4+e4[2:3]
+                                    	                                   	        
                                     	        
                                     	    	block3+=8      
 
                                    	                                      	    	    
                                     	    elif e4[0:2]=="10":
                                     	    	if count4==4:
-                                    	    		sda3+=e4[1:]
+                                    	    		e4=e4[1:]
                                     	    	elif count4!=4:
-                                    	        	sda3+=e4[2:]
+                                    	        	e4=e4[2:]
                                     	    	if count4==4:
-                                    	    		sda8+="0"
+                                    	    		sda3+="0"+e4
                                     	    		count4=1
                                     	  
                                     	    	elif count4!=4:
-                                    	    		sda5+="1"
-                                    	    		sda8+="0"                        	   
+                                    	   
+                                    	    		sda3+="10"+e4                        	   
                                     	    	block3+=8                                    	                                      	    	
                                     	    elif e4[0:2]=="00":
                                     	    	if count4==4:
-                                    	    		sda3+=e4[1:]
+                                    	    		e4=e4[1:]
                                     	    	elif count4!=4:
-                                    	        	sda3+=e4[2:]
+                                    	        	e4=e4[2:]
                                     	    	if count4==4:
-                                    	    		sda8+="1"
+                                    	    		sda3+="1"+e4
                                     	    		count4=1
                                     	    	
                                     	    	elif count4!=4:
-                                    	    	        sda5+="0"
-                                    	    	        sda8+="1"
+                                    	    	        sda3+="01"+e4
+                                    	    	        
                                     	    		                                    	    												 
                                     	    	block3+=8
                                     	    	#print("10")
                                     	    	#print(e4)
                                     	    elif e4[0:2]=="11":
                                     	    	if count4==4:
-                                    	    		sda3+=e4[1:]
+                                    	    		e4=e4[1:]
                                     	    	elif count4!=4:
-                                    	        	sda3+=e4[2:]
+                                    	        	e4=e4[2:]
                                     	        
                                     	    	if count4==4:
-                                    	    		sda8+="0"
+                                    	    		sda3+="0"+e4
                                     	    		count4=1
                                     	    	
                                     	    	elif count4!=4:
-                                    	    		sda5+="0"
-                                    	    		sda8+="0"
+                                    	    		sda3+="00"+e4
+                                    	    
                                     	    
                                     	    	block3+=8
                                     	
@@ -440,8 +440,9 @@ class compression:
                                     
                                    
                                     #print(e5)
+                                    
           	
-                                    sda3=sda5+sda3+sda8
+                                    sda3=sda3
                                     #print(len(sda3))
                                     
                                     sda2=sda3
@@ -454,8 +455,8 @@ class compression:
                                     qqwslenf="%0"+qqwslenf+"x"
                                  
                                     jl=binascii.unhexlify(qqwslenf % n)
-                             
-                                 
+      
+                                                      
                              
                                          
                                     #print(len(jl))
@@ -479,11 +480,12 @@ class compression:
 
                                         
                                     assxw=assxw+1
-                                    if assxw==20:
+                                    if assxw==50:
                                             assx=10
                                             if assx==10:
                                                import paq
-                                               jl= paq.compress(jl) 
+                                               jl= paq.compress(jl)
+                                           
                                                
                                                f2.write(jl)
                                                x2 = time()
