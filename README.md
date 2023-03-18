@@ -6,5 +6,5 @@ It's circling!
 Lymph have 2**24 varations make it to 78 combinations. 50 circles.
 Calculus
 
-1024
-312+78+1=391
+1024B
+312+78+1=391B
