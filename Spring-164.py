@@ -416,12 +416,48 @@ class compression:
                                     assxw=assxw+1
                                     if assxw==50:
                                         #######################################################Jurijus Pacalovas Exection Program######################################################################################
-                                        #2**24#
+                                        #2**24# 
+                                        block3=0
+                                       
+                                        varations=-1
+                                        combinations=0
+                                        Save_V=""
+                                        Save=""
+                                        V=""
+                                        while varations!=256:
+                                        	block3=0
+                                        	varations+=1
+                                        	Times=0
+	                                        while block3<lenf2:
+	                                        	e4=sda3[block3:block3+8]
+	                                        	
+	                                      
+	                                        	
+		                                        	
+		                                        	
+		                                       
+		                                        V=format(varations,'08b')
+		                                        if e4==V and Times==0:
+		                                        	Save_V=Save_V+e4
+		                                        	combinations+=1
+		                                        	Times=1
+		                                        block3+=8
+	                                        
+                                        		                                         
+	                                        		
+	                                        
+                                       	
+                                        	
 
 
 
+                                        V1=format(combinations,'08b')
+                                        
+                                        Save=Save+Save_V
+                                        #print(len(Save))
                                         
                                         n = int(sda3, 2)
+                                        		                                        
                                         
                                         qqwslenf=len(sda3)
                                         qqwslenf=(qqwslenf/8)*2
