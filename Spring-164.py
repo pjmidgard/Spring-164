@@ -464,11 +464,42 @@ class compression:
                                         
                                         Save=Save+Save_V
                                         #print(len(Save))
+                                        sda4=""
+
+                                        Save_Long=len(Save)
+                                        combinations1=combinations+1
+                                        if combinations>127:
+                                            sda4="11111111"+sda3
+                                        else:
+                                            Bits=0
+                                            block3=0
+                                            sda4=""
+                                            while block3<lenf2:
+                                                e4=sda3[block3:block3+8]
+                                                e5=""
+                                                
+                                                Bits1=0
+                                                Bits=0
+                                                while e4!=e5:
+                                                    V3=format(Bits,'07b')
+                                                    e5=Save_V[Bits1:Bits1+8]
+                                                    Bits1+=8
+                                                    Bits+=1
+                                                    
+                                                if e4==e5:
+                                                    sda4=sda4+V3
+                                                    block3+=8
+                                                
+                                            
+                                            sda4=Save+sda4
+                                            #print(len(sda4))
+
                                         
-                                        n = int(sda3, 2)
+                                               
+                                        n = int(sda4, 2)
                                         		                                        
                                         
-                                        qqwslenf=len(sda3)
+                                        qqwslenf=len(sda4)
                                         qqwslenf=(qqwslenf/8)*2
                                         qqwslenf=str(qqwslenf)
                                         qqwslenf="%0"+qqwslenf+"x"
