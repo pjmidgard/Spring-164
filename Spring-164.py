@@ -516,8 +516,8 @@ class compression:
                                         Save=""
                                         Save_V=""
                                         Times_of_compression+=1
-                                        if len(sda2)>=len(sda4) or Times_of_compression==(2**16)-1:
-                                            Times_count=format(Bits,'016b')
+                                        if len(sda4)<=8192 or Times_of_compression==255:
+                                            Times_count=format(Times_of_compression,'08b')
                                             sda4=Times_count+sda4
                                             assxw1=1
                                         sda2=sda4
