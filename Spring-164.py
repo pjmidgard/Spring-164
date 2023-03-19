@@ -517,12 +517,13 @@ class compression:
                                         Save=""
                                         Save_V=""
                                         Times_of_compression+=1
-                                        
+                                        if  len(sda4)>len(sda2):
+                                        	sda4="11111111"+sda3                                        
                                         if len(sda4)<=7920 or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
                                             sda4=Times_count+sda4
                                             assxw1=1
-                                     
+ 
                                         sda2=sda4
                                         #print(len(sda4))
 
