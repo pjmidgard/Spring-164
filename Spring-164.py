@@ -271,6 +271,7 @@ class compression:
                         count4=1
                         count6=0
                         assxw1=0
+                        Times_of_compression=0
               
 
                         assxw=0
@@ -514,6 +515,11 @@ class compression:
                                         sda4=Save+sda4
                                         Save=""
                                         Save_V=""
+                                        Times_of_compression+=1
+                                        if len(sda2)>=len(sda4) or Times_of_compression==(2**16)-1:
+                                            Times_count=format(Bits,'016b')
+                                            sda4=Times_count+sda4
+                                            assxw1=1
                                         sda2=sda4
                                         #print(len(sda4))
 
@@ -545,10 +551,10 @@ class compression:
                               
                                  
                                         
-                                        assxw1=assxw1+1
+                                        
                                         #print(assxw1)
                                         
-                                        if assxw1==20:
+                                        if assxw1==1:
                                     
                                             assx=10
                                             if assx==10:
