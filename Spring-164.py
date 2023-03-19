@@ -460,7 +460,7 @@ class compression:
 
 
 
-                                        V1=format(combinations,'08b')
+                                        Save=format(combinations,'08b')
                                         
                                         Save=Save+Save_V
                                         #print(len(Save))
