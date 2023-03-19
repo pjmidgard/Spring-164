@@ -270,6 +270,7 @@ class compression:
                         count3=0
                         count4=1
                         count6=0
+                        assxw1=0
               
 
                         assxw=0
@@ -357,6 +358,7 @@ class compression:
                                     sda3=""
                                     sda5=""
                                     sda8=""
+                                    sda4=""
                                     
                                     count3+=1
                                     #######################################################Jurijus Pacalovas Exection Program######################################################################################
@@ -433,6 +435,7 @@ class compression:
                                         #######################################################Jurijus Pacalovas Exection Program######################################################################################
                                         #2**32# 
                                         block3=0
+                                        assxw=0
                                        
                                         varations=-1
                                         combinations=-1
@@ -463,18 +466,21 @@ class compression:
                                         Save=format(combinations,'08b')
                                         
                                         Save=Save+Save_V
+                                        
                                         #print(len(Save))
                                         sda4=""
 
                                         Save_Long=len(Save)
                                         combinations1=combinations+1
+                                        #print(combinations)
                                         if combinations>127:
                                             sda4="11111111"+sda3
                                         else:
                                             Bits=0
                                             block3=0
                                             sda4=""
-                                            while block3<lenf2:
+                                            lenf3=len(sda3)
+                                            while block3<lenf3:
                                                 e4=sda3[block3:block3+8]
                                                 e5=""
                                                 
@@ -489,21 +495,38 @@ class compression:
                                                 if e4==e5:
                                                     sda4=sda4+V3
                                                     block3+=8
+                                                    #print(block3)
+
+
+                                        lenf=len(sda4)
+                                        add_bits=""
+                                        count_bits=8-lenf%8
+                                        z=0
+                                        if count_bits!=0:
+                                                if count_bits!=8:
+                                                    while z<count_bits:
+                                                        add_bits="0"+add_bits
+                                                        z=z+1
+                                        sda4=add_bits+sda4
                                                 
                                             
-                                            sda4=Save+sda4
-                                            #print(len(sda4))
+                                        sda4=Save+sda4
+                                        Save=""
+                                        sda2=sda4
+                                        #print(len(sda4))
 
                                         
-                                               
-                                        n = int(sda4, 2)
-                                        		                                        
                                         
+                                            
+                                            	        
+                                        n = int(sda4, 2)
+                                                                                                    
+                                            
                                         qqwslenf=len(sda4)
                                         qqwslenf=(qqwslenf/8)*2
                                         qqwslenf=str(qqwslenf)
                                         qqwslenf="%0"+qqwslenf+"x"
-                                     
+                                         
                                         jl=binascii.unhexlify(qqwslenf % n)
           
                                                           
@@ -515,32 +538,27 @@ class compression:
            
 
                       
-                                        sssssw=len(jl)
-                                        data=jl
-                                        qqqwz=qqqwz+1
-                                        szxzzza=""
-                                        szxzs=""
-                                 
+                                        
                                   
                               
                                  
                                         
+                                        assxw1=assxw1+1
+                                        #print(assxw1)
                                         
-                                        
-
-                                        
+                                        if assxw1==20:
                                     
-                                        assx=10
-                                        if assx==10:
-                                               
+                                            assx=10
+                                            if assx==10:
+                                                   
 
+                                                   
                                                
-                                           
-                                               
-                                            f2.write(jl)
-                                            x2 = time()
-                                            x3=x2-x
-                                            return print(x3)        
+                                                   
+                                                f2.write(jl)
+                                                x2 = time()
+                                                x3=x2-x
+                                                return print(x3)        
                                                                                   														    
                                          
 
