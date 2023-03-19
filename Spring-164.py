@@ -500,7 +500,7 @@ class compression:
                                                     block3+=8
                                                     #print(block3)
 
-
+                                        sda4="1"+sda4
                                         lenf=len(sda4)
                                         add_bits=""
                                         count_bits=8-lenf%8
