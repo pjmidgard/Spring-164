@@ -440,23 +440,17 @@ class compression:
                                         Save=""
                                         V=""
                                         while varations!=256:
-                                        	block3=0
-                                        	varations+=1
-                                        	Times=0
-	                                        while block3<lenf2:
-	                                        	e4=sda3[block3:block3+8]
-	                                        	
-	                                      
-	                                        	
-		                                        	
-		                                        	
-		                                       
-		                                        V=format(varations,'08b')
-		                                        if e4==V and Times==0:
-		                                        	Save_V=Save_V+e4
-		                                        	combinations+=1
-		                                        	Times=1
-		                                        block3+=8
+                                            block3=0
+                                            varations+=1
+                                            Times=0
+                                            while block3<lenf2:
+                                                e4=sda3[block3:block3+8]
+                                                V=format(varations,'08b')
+                                                if e4==V and Times==0:
+                                                    Save_V=Save_V+e4
+                                                    combinations+=1
+                                                    Times=1
+                                                block3+=8
 	                                        
                                         		                                         
 	                                        		
