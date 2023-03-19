@@ -467,6 +467,7 @@ class compression:
                                         
                                         Save=Save+Save_V
                                         
+                                        
                                         #print(len(Save))
                                         sda4=""
 
@@ -512,6 +513,7 @@ class compression:
                                             
                                         sda4=Save+sda4
                                         Save=""
+                                        Save_V=""
                                         sda2=sda4
                                         #print(len(sda4))
 
