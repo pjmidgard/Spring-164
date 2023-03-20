@@ -479,6 +479,10 @@ class compression:
                                         if combinations>127:
                                             sda4="11111111"+sda3
                                         else:
+                                            G=bin(combinations)[2:]
+                                            F=len(G)
+                                            C="0"+str(F)+"b"
+                                            #print(C)
                                             Bits=0
                                             block3=0
                                             sda4=""
@@ -490,7 +494,7 @@ class compression:
                                                 Bits1=0
                                                 Bits=0
                                                 while e4!=e5:
-                                                    V3=format(Bits,'07b')
+                                                    V3=format(Bits,C)
                                                     e5=Save_V[Bits1:Bits1+8]
                                                     Bits1+=8
                                                     Bits+=1
@@ -519,7 +523,7 @@ class compression:
                                         Times_of_compression+=1
                                         if  len(sda4)>len(sda2):
                                         	sda4="11111111"+sda3                                        
-                                        if len(sda4)<=2000 or Times_of_compression==65535:
+                                        if len(sda4)<=600 or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
                                             sda4=Times_count+sda4
                                             assxw1=1
