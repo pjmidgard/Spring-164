@@ -519,7 +519,7 @@ class compression:
                                         Times_of_compression+=1
                                         if  len(sda4)>len(sda2):
                                         	sda4="11111111"+sda3                                        
-                                        if len(sda4)<=3000 or Times_of_compression==65535:
+                                        if len(sda4)<=2000 or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
                                             sda4=Times_count+sda4
                                             assxw1=1
