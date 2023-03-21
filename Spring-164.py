@@ -258,7 +258,7 @@ class compression:
                                                     
                                                 if e4==e5:
                                                     sda4=sda4+e5
-                                                    block3+=8
+                                                    block3+=F
                                     
                                 
                                    
