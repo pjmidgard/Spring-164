@@ -523,7 +523,7 @@ class compression:
                                         Times_of_compression+=1
                                         if  len(sda4)>len(sda2):
                                         	sda4="11111111"+sda3                                        
-                                        if len(sda4)<=600 or Times_of_compression==65535:
+                                        if len(sda4)<=496 or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
                                             count_save=format(count4,'08b')
                                             sda4=count_save+Times_count+sda4                        
