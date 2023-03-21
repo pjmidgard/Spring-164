@@ -264,6 +264,7 @@ class compression:
                                     
                                 Times_of_compression1+=1
                                 assxw=assxw+1
+                                assxw1=0
                                 if assxw==1:
                                             sda2=sda4
                                             assxw=0
