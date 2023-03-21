@@ -232,8 +232,9 @@ class compression:
                                 sda3=sda2
                                 
 
-                               
+                                if Tranformation==1:
 
+                                            sda4=sda3
                                 if Tranformation==0:
                                             G=bin(combinations)[2:]
                                             F=len(G)
