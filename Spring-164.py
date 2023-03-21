@@ -26,7 +26,7 @@ class compression:
                    
                     blockw=5
                     blockw1=4
-                    assxw=0
+                    assxw1=0
                     name_cut=""
                     name_cut=len(".bin")
                     nameas=name
@@ -40,8 +40,11 @@ class compression:
                     nameas=name[:name_long-name_cut]
                     
                     nac=len(nameas)
+
+                    Times_of_compression=0
                     
                     countraz=0
+                    assxw=0
                     cvf=2
                     cvf1=0
                     s=""
@@ -51,6 +54,7 @@ class compression:
                     c=2
                     sw=2
                     elw=0
+                    count4=1
                  
                     sda3=""
                     sda2=""
@@ -61,6 +65,8 @@ class compression:
 
                     block=2
                     block2=0
+
+                    count_time_of_copression=0
 
                     x=0
                     x1=0
@@ -79,8 +85,7 @@ class compression:
                         # Read the whole file at once
                         
                         data = binary_file.read()
-                        import paq
-                        data= paq.decompress(data)
+                        
                         s=str(data)
                         
             
@@ -173,81 +178,245 @@ class compression:
                                             sda="0"+sda
                                             z=z+1
 
+                                    if count_time_of_copression==0:
+                                        count4=int(sda[:8],2)
+                                        sda=sda[8:]
+                                        Times_of_compression=int(sda[:16],2)
+                                        sda=sda[16:]
+                                        count_time_of_copression=1
                                     
-
                                     sda2=sda
 
                                     lenf3=len(sda2)
                                 lenf2=len(sda2)  
                                 block3=0
                                 sda3=""
+
                                 
+                                Save=sda2[:8]
+                                sda2=sda2[8:]
+                                Tranformation=0
+                                combinations=int(sda2,2)
+                                if combinations==255:
+                                    Tranformation=1
+                                if Tranformation==0:
+                                    combinations1=combinations+1
+                                    combinations1_bytes=combinations1*8
+                                    Save_V=sda2[:combinations1_bytes]
+                                    sda2=sda2[combinations1_bytes:]
+
+
+                                    size_data3=sda2
+                                    if size_data3[0:9]=="000000001":
+                                        sda2=sda2[9:]
+                                    elif size_data3[0:8]=="00000001":
+                                        sda2=sda2[8:]
+                                    elif size_data3[0:7]=="0000001":
+                                        sda2=sda2[7:]
+                                    elif size_data3[0:6]=="000001":
+                                        sda2=sda2[6:]
+                                    elif size_data3[0:5]=="00001":
+                                        sda2=sda2[5:]
+                                    elif size_data3[0:4]=="0001":
+                                        sda2=sda2[4:]
+                                    elif size_data3[0:3]=="001":
+                                        sda2=sda2[3:]
+                                    elif size_data3[0:2]=="01":
+                                        sda2=sda2[2:]
+                                    elif size_data3[0:1]=="1":
+                                        sda2=sda2[1:]
+
+
                                 
+                                sda3=sda2
+                                
+
+                               
+
+                                if Tranformation==0:
+                                            G=bin(combinations)[2:]
+                                            F=len(G)
+                                            C="0"+str(F)+"b"
+                                            #print(C)
+                                            Bits=0
+                                            block3=0
+                                            sda4=""
+                                            lenf3=len(sda3)
+                                            while block3<lenf3:
+                                                e4=sda3[block3:block3+F]
+                                                e5=""
+                                                
+                                                Bits1=0
+                                                Bits=0
+                                                while e4!=e5:
+                                                    
+                                                    e5=Save_V[Bits1:Bits1+8]
+                                                    Bits1+=8
+                                                    Bits+=1
+                                                    
+                                                if e4==e5:
+                                                    sda4=sda4+e5
+                                                    block3+=8
+                                    
                                 
                                    
                                     
-                                while block3<lenf2:
-                                    	e4=sda2[block3:block3+102400]
-                                    	shake_reverse=0
-                                    	e6=e4
-                                    	
-                                    	d2=int(e6,2)
-                                    	d3=d2
-                                    	
-                                    	if len(e4)==102400:
-	                                    	
-		                                  
-		                                    
-		                                    	
-		                                            
-		                                            if d2>=((2**(102400*8))-(2**89700)):
-		                                            	d2=d2-(2**(102400*8))
-		                                            d2=d2+(2**89700)
-		                                            
-		                                            
-		                                     
-                                                                      	
-                                        		
-                                        	
-                                    	long_size=len(e4)
-                                    	C="0"+str(long_size)+"b"
-                                    	e3=format(d2,C)
-                                    	#print(e3)
-    
-                                    	
-                                    	sda3+=e3
-                                    	block3+=102400
-                                    	
-                                    	
-                                    	
-                                    	
-                                    	
-                               
-                                       
-                               
-                                
-                                                     		 
-                                sda2=sda3
-                                n = int(sda3, 2)
-                                qqwslenf=len(sda3)
-                                qqwslenf=(qqwslenf/8)*2
-                                qqwslenf=str(qqwslenf)
-                                qqwslenf="%0"+qqwslenf+"x"
-                                jl=binascii.unhexlify(qqwslenf % n)
-                                sssssw=len(jl)
-                                data=jl
-                                qqqwz=qqqwz+1
-                                szxzzza=""
-                                szxzs=""
+
                                 assxw=assxw+1
                                 if assxw==1:
-                                         assx=10
-                                         if assx==10:
-                                             f2.write(jl)
-                                             x2 = time()
-                                             x3=x2-x
-                                             return print(x3)
-                
+                                            sda2=sda4
+                                            assxw=0
+
+
+                                            sda3=""
+                                            sda5=""
+                                            sda8=""
+                                            sda4=""
+                                            
+                                            
+                                            #######################################################Jurijus Pacalovas Exection Program######################################################################################
+
+
+                                            
+                                            while block3<lenf2:
+                                                count4+=1
+                                                
+                                                
+                                                e4=sda2[block3:block3+8]
+                                                e6=e4
+
+                                                if count4==5:
+                                                    count4=0
+                                                if e4[0:2]=="11":
+                                                    if count4==4:
+                                                        e4=e4[2:]
+                                                    elif count4!=4:
+                                                        e4=e4[2:]
+                                                    if count4==4:
+                                                        e4="01"+e4
+
+                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                        e4=e10[::-1]
+
+
+                                                        sda3+=e4
+                                                        count4=1
+                                                    elif count4!=4:
+                                                        e6=""
+                                                        e6=e4[7:8]
+                                                        e4="01"+e4
+
+                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                        e4=e10[::-1]
+
+
+                                                        sda3+=e4
+                                                    block3+=8
+                                                elif e4[0:2]=="10" and count4!=4 or e4[0:2]=="00" and count4==4:
+                                                    if count4==4:
+                                                        e4=e4[2:]
+                                                    elif count4!=4:
+                                                        e4=e4[2:]
+                                                    if count4==4:
+                                                        e4="10"+e4
+
+                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                        e4=e10[::-1]
+
+
+                                                        sda3+=e4
+                                                        count4=1
+                                                    elif count4!=4:
+                                                        e4="10"+e4
+
+                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                        e4=e10[::-1]
+
+
+                                                        sda3+=e4
+                                                    block3+=8
+                                                elif e4[0:2]=="01" and count4!=4 or e4[0:2]=="10" and count4==4:
+                                                    if count4==4:
+                                                        e4=e4[2:]
+                                                    elif count4!=4:
+                                                        e4=e4[2:]
+                                                    if count4==4:
+                                                        e4="00"+e4
+
+                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                        e4=e10[::-1]
+
+
+                                                        sda3+=e4
+                                                        count4=1
+                                                    elif count4!=4:
+                                                        e4="00"+e4
+
+                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                        e4=e10[::-1]
+
+
+                                                        sda3+=e4
+                                                    block3+=8
+                                                elif e4[0:2]=="00" and count4!=4 or e4[0:2]=="01" and count4==4:
+                                                    if count4==4:
+                                                        e4=e4[2:]
+                                                    elif count4!=4:
+                                                        e4=e4[2:]
+                                                    if count4==4:
+                                                        e4="11"+e4
+
+                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                        e4=e10[::-1]
+
+
+                                                        sda3+=e4
+                                                        count4=1
+                                                    elif count4!=4:
+                                                        e4="11"+e4
+
+                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                        e4=e10[::-1]
+
+
+                                                        sda3+=e4
+                                                    block3+=8
+                                                
+                     
+                                            
+                                           
+                                            #print(e5)
+                                            
+                        
+                                            #print(len(sda3))
+                                            
+                                            sda2=sda3
+
+
+
+
+                                         
+                                            assxw1=assxw+1
+
+                                            n = int(sda3, 2)
+                                                                                                        
+                                                
+                                            qqwslenf=len(sda3)
+                                            qqwslenf=(qqwslenf/8)*2
+                                            qqwslenf=str(qqwslenf)
+                                            qqwslenf="%0"+qqwslenf+"x"
+                                             
+                                            jl=binascii.unhexlify(qqwslenf % n)
+
+                                         
+                                            if assxw1==50:
+                                                assx=10
+                                                if assx==10:
+                                                    f2.write(jl)
+                                                    x2 = time()
+                                                    x3=x2-x
+                                                    return print(x3)
+                    
 
                            
     
@@ -362,9 +531,10 @@ class compression:
                                     sda4=""
                                     
                                     count3+=1
+                                    #print(count4)
                                     #######################################################Jurijus Pacalovas Exection Program######################################################################################
 
-
+                                    
                                     
                                     while block3<lenf2:
                                         count4+=1
@@ -526,7 +696,7 @@ class compression:
                                         if len(sda4)<=496 or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
                                             count_save=format(count4,'08b')
-                                            sda4=count_save+Times_count+sda4                        
+                                            sda4=count_save+Times_count+sda4
                                             assxw1=1
  
                                         sda2=sda4
