@@ -525,7 +525,8 @@ class compression:
                                         	sda4="11111111"+sda3                                        
                                         if len(sda4)<=600 or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
-                                            sda4=Times_count+sda4
+                                            count_save=format(count4,'08b')
+                                            sda4=count_save+Times_count+sda4                        
                                             assxw1=1
  
                                         sda2=sda4
