@@ -280,14 +280,14 @@ class compression:
 
                                             
                                             while block3<lenf2:
-                                                count4+=1
+                                                count4-=1
                                                 
                                                 
                                                 e4=sda2[block3:block3+8]
                                                 e6=e4
 
-                                                if count4==5:
-                                                    count4=0
+                                                if count4==1:
+                                                    count4=4
                                                 if e4[0:2]=="11":
                                                     if count4==4:
                                                         e4=e4[2:]
@@ -301,7 +301,7 @@ class compression:
 
 
                                                         sda3+=e4
-                                                        count4=1
+                                                        
                                                     elif count4!=4:
                                                         e6=""
                                                         e6=e4[7:8]
@@ -326,7 +326,7 @@ class compression:
 
 
                                                         sda3+=e4
-                                                        count4=1
+                                                        
                                                     elif count4!=4:
                                                         e4="10"+e4
 
@@ -349,7 +349,7 @@ class compression:
 
 
                                                         sda3+=e4
-                                                        count4=1
+                                                    
                                                     elif count4!=4:
                                                         e4="00"+e4
 
@@ -372,7 +372,7 @@ class compression:
 
 
                                                         sda3+=e4
-                                                        count4=1
+                                                        
                                                     elif count4!=4:
                                                         e4="11"+e4
 
