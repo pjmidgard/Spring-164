@@ -23,10 +23,11 @@ class compression:
                     namea=""
                     namem=""
                     namema="?"
-                   
+                    Times_of_compression1=0
                     blockw=5
                     blockw1=4
                     assxw1=0
+                    assxw2=0
                     name_cut=""
                     name_cut=len(".bin")
                     nameas=name
@@ -261,7 +262,7 @@ class compression:
                                 
                                    
                                     
-
+                                Times_of_compression1+=1
                                 assxw=assxw+1
                                 if assxw==1:
                                             sda2=sda4
@@ -410,12 +411,15 @@ class compression:
 
                                          
                                             if assxw1==50:
-                                                assx=10
-                                                if assx==10:
-                                                    f2.write(jl)
-                                                    x2 = time()
-                                                    x3=x2-x
-                                                    return print(x3)
+                                                    if Times_of_compression==Times_of_compression1:
+                                                        assxw2=1
+                                                    if assxw2==1:
+                                                        assx=10
+                                                        if assx==10:
+                                                            f2.write(jl)
+                                                            x2 = time()
+                                                            x3=x2-x
+                                                            return print(x3)
                     
 
                            
