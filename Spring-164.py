@@ -180,11 +180,13 @@ class compression:
                                             z=z+1
 
                                     if count_time_of_copression==0:
+                                        sda9=sda
                                         count4=int(sda[:8],2)
                                         sda=sda[8:]
                                         #print(count4)
                                         Times_of_compression=int(sda[:16],2)
                                         sda=sda[16:]
+                                        
                                         #print(Times_of_compression)
                                         count_time_of_copression=1
                                     
@@ -594,7 +596,7 @@ class compression:
                                                 sda3+="1"+e4
                                                 count4=1
                                             elif count4!=4:
-                                                sda3+="11"+e4+e4[2:3]
+                                                sda3+="11"+e4+e10[2:3]
                                             block3+=8
                                         elif e4[0:2]=="10":
                                             if count4==4:
@@ -636,7 +638,7 @@ class compression:
                                     #print(e5)
                                     
           	
-                                    #print(len(sda3))
+                                    #print(sda3)
                                     
                                     sda2=sda3
                                     assxw=assxw+1
