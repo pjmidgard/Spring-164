@@ -299,7 +299,7 @@ class compression:
                                                         Reverse=0
                                                         e11=""
                                                         
-                                                        print(e5)
+                                                        #print(e5)
 
                                                         while e5!=e11:
 
@@ -311,54 +311,59 @@ class compression:
                                                             e6=e4
                                                             e10=e4[:3]+e4[3:5][::-1]+e4[5:]
                                                             e4=e10[::-1]
-                                                            #print(len(e4))
+                                                            #print(count4)
 
                                                             
                                                             
                                                             if e4[0:2]=="01":
                                                                 if count4==4:
-                                                                    e4=e4[1:]
+                                                                    e4=e4[2:]
                                                                 elif count4!=4:
                                                                     e4=e4[3:]
                                                                 if count4==4:
-                                                                    e4="1"+e4
-                                                                    
+                                                                    e7="11"+e4
+                                                                
                                                                 elif count4!=4:
-                                                                    e4="11"+e4+e10[2:3]
+                                                                    e7="11"+e4+e10[2:3]
+                                                                    #print(len(e4))
                                                                 
                                                             elif e4[0:2]=="10":
                                                                 if count4==4:
-                                                                    e4=e4[1:]
+                                                                    e4=e4[2:]
                                                                 elif count4!=4:
                                                                     e4=e4[2:]
                                                                 if count4==4:
-                                                                    e4="0"+e4
-                                                                    
+                                                                    e7="00"+e4
+                                                                
                                                                 elif count4!=4:
-                                                                    e4="10"+e4
+                                                                    e7="10"+e4
                                                             
                                                             elif e4[0:2]=="00":
                                                                 if count4==4:
-                                                                    e4=e4[1:]
+                                                                    e4=e4[2:]
                                                                 elif count4!=4:
                                                                     e4=e4[2:]
                                                                 if count4==4:
-                                                                    e4="1"+e4
+                                                                    e7="10"+e4
                                                                     
                                                                 elif count4!=4:
-                                                                    e4="01"+e4
-                                                                
+                                                                    e7="01"+e4
+                                                            
                                                             elif e4[0:2]=="11":
                                                                 if count4==4:
-                                                                    e4=e4[1:]
+                                                                    e4=e4[2:]
                                                                 elif count4!=4:
                                                                     e4=e4[2:]
                                                                 if count4==4:
-                                                                    e4="0"+e4
-                                                                    
+                                                                    e7="01"+e4
+                                                                
                                                                 elif count4!=4:
-                                                                    e4="00"+e4
-                                                            e11=e4
+                                                                    e7="00"+e4
+                                                                
+                                                            e11=e7
+                                                            #print(e11)
+                                                            #if len(e11)!=8:
+                                                                #print(e11)
 
                                                         
                                                             #print(e12)
@@ -536,48 +541,49 @@ class compression:
                                             count4=0
                                         if e4[0:2]=="01":
                                             if count4==4:
-                                                e4=e4[1:]
+                                                e4=e4[2:]
                                             elif count4!=4:
                                                 e4=e4[3:]
                                             if count4==4:
-                                                sda3+="1"+e4
+                                                sda3+="11"+e4
                                                 count4=1
                                             elif count4!=4:
                                                 sda3+="11"+e4+e10[2:3]
                                             block3+=8
                                         elif e4[0:2]=="10":
                                             if count4==4:
-                                                e4=e4[1:]
+                                                e4=e4[2:]
                                             elif count4!=4:
                                                 e4=e4[2:]
                                             if count4==4:
-                                                sda3+="0"+e4
+                                                sda3+="00"+e4
                                                 count4=1
                                             elif count4!=4:
                                                 sda3+="10"+e4
                                             block3+=8
                                         elif e4[0:2]=="00":
                                             if count4==4:
-                                                e4=e4[1:]
+                                                e4=e4[2:]
                                             elif count4!=4:
                                                 e4=e4[2:]
                                             if count4==4:
-                                                sda3+="1"+e4
+                                                sda3+="10"+e4
                                                 count4=1
                                             elif count4!=4:
                                                 sda3+="01"+e4
                                             block3+=8
                                         elif e4[0:2]=="11":
                                             if count4==4:
-                                                e4=e4[1:]
+                                                e4=e4[2:]
                                             elif count4!=4:
                                                 e4=e4[2:]
                                             if count4==4:
-                                                sda3+="0"+e4
+                                                sda3+="01"+e4
                                                 count4=1
                                             elif count4!=4:
                                                 sda3+="00"+e4
                                             block3+=8
+                                        #print(len(sda3))
                                     	
              
                                     
@@ -687,7 +693,7 @@ class compression:
                                         	sda4="11111111"+sda3
 
                                         #print(len(sda4))
-                                        if len(sda4)<=496 or Times_of_compression==65535:
+                                        if len(sda4)<=1400 or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
                                             count_save=format(count4,'08b')
                                             sda4=count_save+Times_count+sda4
