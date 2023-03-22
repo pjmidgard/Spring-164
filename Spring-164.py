@@ -277,6 +277,7 @@ class compression:
                                 #print(sda2)
                                 if assxw==1:
                                             assxw1=0
+                                            #print(count4)
                                             while assxw1!=50:
 	                                            #print(sda2)
 	                                            assxw=0
@@ -304,7 +305,7 @@ class compression:
 	                                                e4=sda2[block3:block3+8]
 	                                                e6=e4
 	
-	                                                if count4==1:
+	                                                if count4==0:
 	                                                    count4=4
 	                                                    #print(count4)
 	                                                if e4[0:2]=="11":
@@ -412,6 +413,7 @@ class compression:
 	                                            
 	                                            sda2=sda3
 	                                            #print(sda2)
+	                                            
 	
 	
 	
@@ -429,7 +431,7 @@ class compression:
 	                                            jl=binascii.unhexlify(qqwslenf % n)
                                             #print(jl)
 
-                                         
+                                            #print(count4)
                                             if assxw1==50:
                                                     if Times_of_compression==Times_of_compression1:
                                                         assxw2=1
