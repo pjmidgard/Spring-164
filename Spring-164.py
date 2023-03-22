@@ -182,8 +182,10 @@ class compression:
                                     if count_time_of_copression==0:
                                         count4=int(sda[:8],2)
                                         sda=sda[8:]
+                                        #print(count4)
                                         Times_of_compression=int(sda[:16],2)
                                         sda=sda[16:]
+                                        #print(Times_of_compression)
                                         count_time_of_copression=1
                                     
                                     sda2=sda
@@ -196,10 +198,14 @@ class compression:
                                 
                                 Save=sda2[:8]
                                 sda2=sda2[8:]
+                               
                                 Tranformation=0
-                                combinations=int(sda2,2)
+                                combinations=int(Save,2)
+                                #print(combinations)
+                                
                                 if combinations==255:
                                     Tranformation=1
+                                    
                                 if Tranformation==0:
                                     combinations1=combinations+1
                                     combinations1_bytes=combinations1*8
@@ -235,6 +241,7 @@ class compression:
                                 if Tranformation==1:
 
                                             sda4=sda3
+                                            #print(sda4)
                                 if Tranformation==0:
                                             G=bin(combinations)[2:]
                                             F=len(G)
@@ -266,8 +273,11 @@ class compression:
                                 Times_of_compression1+=1
                                 assxw=assxw+1
                                 assxw1=0
+                                sda2=sda4
+                                print(sda2)
                                 if assxw==1:
-                                            sda2=sda4
+                                           
+                                            print(sda2)
                                             assxw=0
 
 
@@ -275,14 +285,19 @@ class compression:
                                             sda5=""
                                             sda8=""
                                             sda4=""
+                                            block3=0
+                                            print(sda2)
                                             
                                             
                                             #######################################################Jurijus Pacalovas Exection Program######################################################################################
 
 
-                                            
+                                            lenf2=len(sda2)
+                                            print(lenf2)
+                                            #print("lenf2")
                                             while block3<lenf2:
                                                 count4-=1
+                                                #print(count4)
                                                 
                                                 
                                                 e4=sda2[block3:block3+8]
@@ -394,22 +409,23 @@ class compression:
                                             #print(len(sda3))
                                             
                                             sda2=sda3
+                                            #print(sda2)
 
 
 
 
                                          
-                                            assxw1=assxw+1
+                                            assxw1=assxw1+1
+                                            #print(assxw1)
 
                                             n = int(sda3, 2)
-                                                                                                        
-                                                
+                                            #print(n)
                                             qqwslenf=len(sda3)
                                             qqwslenf=(qqwslenf/8)*2
                                             qqwslenf=str(qqwslenf)
                                             qqwslenf="%0"+qqwslenf+"x"
-                                             
                                             jl=binascii.unhexlify(qqwslenf % n)
+                                            #print(jl)
 
                                          
                                             if assxw1==50:
