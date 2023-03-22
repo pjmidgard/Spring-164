@@ -638,7 +638,7 @@ class compression:
                                     #print(e5)
                                     
           	
-                                    #print(sda3)
+                                    print(sda3)
                                     
                                     sda2=sda3
                                     assxw=assxw+1
