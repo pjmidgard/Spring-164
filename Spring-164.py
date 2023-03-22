@@ -289,12 +289,13 @@ class compression:
                                                     sda4=""
                                                     block3=0
                                                     lenf2=len(sda2)
-                                                    count4=1
-
                                                  
+                                                   
+                                                    count4=1
                                                     while block3<lenf2:
                                                         count4+=1
                                                         e5=sda2[block3:block3+8]
+
 
                                                         Reverse=0
                                                         e11=""
@@ -311,6 +312,7 @@ class compression:
                                                             e6=e4
                                                             e10=e4[:3]+e4[3:5][::-1]+e4[5:]
                                                             e4=e10[::-1]
+                                                            e14=e4
                                                             #print(count4)
 
                                                             
@@ -324,7 +326,7 @@ class compression:
                                                                     e7="11"+e4
                                                                 
                                                                 elif count4!=4:
-                                                                    e7="11"+e4+e10[2:3]
+                                                                    e7="11"+e4+e14[2:3]
                                                                     #print(len(e4))
                                                                 
                                                             elif e4[0:2]=="10":
@@ -372,8 +374,7 @@ class compression:
                                                             
                                                             #print(e11)
                                                         sda3+=e6
-                                                        if count4==4:
-                                                            count4=1
+                                                       
                                                         #print(count4)
                                                         block3+=8
 	                                           
@@ -381,7 +382,8 @@ class compression:
 	                                            
 	                        
 	                                            #print(len(sda3))
-	                                            
+                                                    if count4==1:
+                                                           count4=4	                                            
 	                                              
 	                                            #print(sda2)
 	                                            
@@ -525,9 +527,9 @@ class compression:
                                     #print(count4)
                                     #######################################################Jurijus Pacalovas Exection Program######################################################################################
                                     #print(sda2)
-                                    count4=1
+                                  
                                    
-                                    
+                                    count4=1
                                     while block3<lenf2:
                                         count4+=1
                                         count2+=1
@@ -537,6 +539,7 @@ class compression:
                                         e6=e4
                                         e10=e4[:3]+e4[3:5][::-1]+e4[5:]
                                         e4=e10[::-1]
+                                        e14=e4
                                         if count4==5:
                                             count4=0
                                         if e4[0:2]=="01":
@@ -548,7 +551,7 @@ class compression:
                                                 sda3+="11"+e4
                                                 count4=1
                                             elif count4!=4:
-                                                sda3+="11"+e4+e10[2:3]
+                                                sda3+="11"+e4+e14[2:3]
                                             block3+=8
                                         elif e4[0:2]=="10":
                                             if count4==4:
@@ -693,7 +696,7 @@ class compression:
                                         	sda4="11111111"+sda3
 
                                         #print(len(sda4))
-                                        if len(sda4)<=1400 or Times_of_compression==65535:
+                                        if len(sda4)>len(sda2) or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
                                             count_save=format(count4,'08b')
                                             sda4=count_save+Times_count+sda4
