@@ -300,6 +300,7 @@ class compression:
 	                                            while block3<lenf2:
 	                                                count4-=1
 	                                                #print(count4)
+	                                                #print(e4)
 	                                                
 	                                                
 	                                                e4=sda2[block3:block3+8]
@@ -324,8 +325,11 @@ class compression:
 	                                                        
 	                                                    elif count4!=4:
 	                                                        e6=""
-	                                                        e6=e4[7:8]
-	                                                        e4="01"+e4
+	                                                        #print(e4)
+	                                                        e6=e4[5:6]
+	                                                        #print(e6)
+	                                                        e4="01"+e6+e4[:5]
+	                                                        #print(len(e4))
 	
 	                                                        e10=e4[:3]+e4[3:5][::-1]+e4[5:]
 	                                                        e4=e10[::-1]
