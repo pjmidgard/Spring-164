@@ -282,167 +282,113 @@ class compression:
                                             #print(count4)
                                             
                                             while assxw1!=50:
-	                                            #print(sda2)
-	                                            assxw=0
-	
-	
-	                                            sda3=""
-	                                            sda5=""
-	                                            sda8=""
-	                                            sda4=""
-	                                            block3=0
-	                                            #print(sda2)
-	                                            
-	                                            
-	                                            #######################################################Jurijus Pacalovas Exection Program######################################################################################
-	
-	                                            
-	                                            lenf2=len(sda2)
-	                                            #print(lenf2)
-	                                            #print("lenf2")
-	                                            while block3<lenf2:
-	                                                count4-=1
-	                                                #print(count4)
-	                                                #print(e4)
-	                                                
-	                                                
-	                                                e4=sda2[block3:block3+8]
-	                                                e6=e4
-	
-	                                                if count4==0:
-	                                                    count4=4
-	                                                    #print(count4)
-	                                                if e4[0:2]=="11":
-	                                                    if count4==4:
-	                                                        e4=e4[2:]
-	                                                    elif count4!=4:
-	                                                        e4=e4[2:]
-	                                                    if count4==4:
-	                                                        e4="01"+e4
-	                                                        #print(e4)
-	                                                        e4=e4[::-1]
-	
-	                                                        e4=e4[:3]+e4[3:5][::-1]+e4[5:]
-	                                                        #print(e4)
-	                                                        
-	
-	
-	                                                        sda3+=e4
-	                                                        
-	                                                    elif count4!=4:
-	                                                        e6=""
-	                                                        #print(e4)
-	                                                        e6=e4[5:6]
-	                                                        #print(e6)
-	                                                        e4="01"+e6+e4[:5]
-	                                                        #print(len(e4))
-	
-	                                                        e4=e4[::-1]
-	
-	                                                        e4=e4[:3]+e4[3:5][::-1]+e4[5:]
-	
-	
-	                                                        sda3+=e4
-	                                                    block3+=8
-	                                                elif e4[0:2]=="10" and count4!=4 or e4[0:2]=="00" and count4==4:
-	                                                    if count4==4:
-	                                                        e4=e4[2:]
-	                                                    elif count4!=4:
-	                                                        e4=e4[2:]
-	                                                    if count4==4:
-	                                                        e4="10"+e4
-	
-	                                                        e4=e4[::-1]
-	
-	                                                        e4=e4[:3]+e4[3:5][::-1]+e4[5:]
-	
-	
-	                                                        sda3+=e4
-	                                                        
-	                                                    elif count4!=4:
-	                                                        e4="10"+e4
-	                                                        e4=e4[::-1]
-	
-	                                                        e4=e4[:3]+e4[3:5][::-1]+e4[5:]
-	
-	
-	                                                        sda3+=e4
-	                                                    block3+=8
-	                                                elif e4[0:2]=="01" and count4!=4 or e4[0:2]=="10" and count4==4:
-	                                                    if count4==4:
-	                                                        e4=e4[2:]
-	                                                    elif count4!=4:
-	                                                        e4=e4[2:]
-	                                                    if count4==4:
-	                                                        e4="00"+e4
-	                                                        e4=e4[::-1]
-	
-	                                                        e4=e4[:3]+e4[3:5][::-1]+e4[5:]
-	
-	
-	                                                        sda3+=e4
-	                                                    
-	                                                    elif count4!=4:
-	                                                        e4="00"+e4
-	
-	                                                        e4=e4[::-1]
-	
-	                                                        e4=e4[:3]+e4[3:5][::-1]+e4[5:]
-	
-	
-	                                                        sda3+=e4
-	                                                    block3+=8
-	                                                elif e4[0:2]=="00" and count4!=4 or e4[0:2]=="01" and count4==4:
-	                                                    if count4==4:
-	                                                        e4=e4[2:]
-	                                                    elif count4!=4:
-	                                                        e4=e4[2:]
-	                                                    if count4==4:
-	                                                        e4="11"+e4
-	                                                        e4=e4[::-1]
-	
-	                                                        e4=e4[:3]+e4[3:5][::-1]+e4[5:]
-	
-	
-	                                                        sda3+=e4
-	                                                        
-	                                                    elif count4!=4:
-	                                                        e4="11"+e4
-	
-	                                                        e4=e4[::-1]
-	
-	                                                        e4=e4[:3]+e4[3:5][::-1]+e4[5:]
-	
-	
-	                                                        sda3+=e4
-	                                                    block3+=8
-	                                                
-	                     
-	                                            
+                                                    assxw=0
+                                                    sda3=""
+                                                    sda5=""
+                                                    sda8=""
+                                                    sda4=""
+                                                    block3=0
+                                                    lenf2=len(sda2)
+                                                    count4=1
+
+                                                 
+                                                    while block3<lenf2:
+                                                        count4+=1
+                                                        e5=sda2[block3:block3+8]
+
+                                                        Reverse=0
+                                                        e11=""
+                                                        
+                                                        print(e5)
+
+                                                        while e5!=e11:
+
+                                                            if Reverse==256:
+                                                                Reverse=0
+
+                                                            e4=format(Reverse,'08b')
+                                                            
+                                                            e6=e4
+                                                            e10=e4[:3]+e4[3:5][::-1]+e4[5:]
+                                                            e4=e10[::-1]
+                                                            #print(len(e4))
+
+                                                            
+                                                            
+                                                            if e4[0:2]=="01":
+                                                                if count4==4:
+                                                                    e4=e4[1:]
+                                                                elif count4!=4:
+                                                                    e4=e4[3:]
+                                                                if count4==4:
+                                                                    e4="1"+e4
+                                                                    
+                                                                elif count4!=4:
+                                                                    e4="11"+e4+e10[2:3]
+                                                                
+                                                            elif e4[0:2]=="10":
+                                                                if count4==4:
+                                                                    e4=e4[1:]
+                                                                elif count4!=4:
+                                                                    e4=e4[2:]
+                                                                if count4==4:
+                                                                    e4="0"+e4
+                                                                    
+                                                                elif count4!=4:
+                                                                    e4="10"+e4
+                                                            
+                                                            elif e4[0:2]=="00":
+                                                                if count4==4:
+                                                                    e4=e4[1:]
+                                                                elif count4!=4:
+                                                                    e4=e4[2:]
+                                                                if count4==4:
+                                                                    e4="1"+e4
+                                                                    
+                                                                elif count4!=4:
+                                                                    e4="01"+e4
+                                                                
+                                                            elif e4[0:2]=="11":
+                                                                if count4==4:
+                                                                    e4=e4[1:]
+                                                                elif count4!=4:
+                                                                    e4=e4[2:]
+                                                                if count4==4:
+                                                                    e4="0"+e4
+                                                                    
+                                                                elif count4!=4:
+                                                                    e4="00"+e4
+                                                            e11=e4
+
+                                                        
+                                                            #print(e12)
+                                                            Reverse+=1
+                                                            #print(e11)
+                                                            
+                                                            #print(e11)
+                                                        sda3+=e6
+                                                        if count4==4:
+                                                            count4=1
+                                                        #print(count4)
+                                                        block3+=8
 	                                           
 	                                            #print(e5)
 	                                            
 	                        
 	                                            #print(len(sda3))
 	                                            
-	                                            sda2=sda3
+	                                              
 	                                            #print(sda2)
 	                                            
-	
-	
-	
-	
-	                                         
-	                                            assxw1=assxw1+1
-	                                            #print(assxw1)
-	
-	                                            n = int(sda3, 2)
-	                                            #print(n)
-	                                            qqwslenf=len(sda3)
-	                                            qqwslenf=(qqwslenf/8)*2
-	                                            qqwslenf=str(qqwslenf)
-	                                            qqwslenf="%0"+qqwslenf+"x"
-	                                            jl=binascii.unhexlify(qqwslenf % n)
+                                                    sda2=sda3
+                                                    #print(sda2)
+                                                    assxw1=assxw1+1
+                                                    n = int(sda3, 2)
+                                                    qqwslenf=len(sda3)
+                                                    qqwslenf=(qqwslenf/8)*2
+                                                    qqwslenf=str(qqwslenf)
+                                                    qqwslenf="%0"+qqwslenf+"x"
+                                                    jl=binascii.unhexlify(qqwslenf % n)
                                             #print(jl)
 
                                             #print(count4)
@@ -573,7 +519,8 @@ class compression:
                                     count3+=1
                                     #print(count4)
                                     #######################################################Jurijus Pacalovas Exection Program######################################################################################
-
+                                    #print(sda2)
+                                    count4=1
                                    
                                     
                                     while block3<lenf2:
@@ -635,16 +582,20 @@ class compression:
              
                                     
                                    
-                                    #print(e5)
+                                    #print(count4)
                                     
           	
-                                    print(sda3)
+                                    #print(sda3)
+                                    #os.system("pause")
                                     
                                     sda2=sda3
                                     assxw=assxw+1
                                     if assxw==50:
                                         #######################################################Jurijus Pacalovas Exection Program######################################################################################
-                                        #2**32# 
+                                        #2**32#
+                                        #print(sda2)
+                                        #os.system("pause")
+                                        
                                         block3=0
                                         assxw=0
                                        
@@ -679,7 +630,7 @@ class compression:
                                         Save=Save+Save_V
                                         
                                         
-                                        #print(len(Save))
+                                        #print(len(sda3))
                                         sda4=""
 
                                         Save_Long=len(Save)
@@ -725,6 +676,7 @@ class compression:
                                                         add_bits="0"+add_bits
                                                         z=z+1
                                         sda4=add_bits+sda4
+                                        
                                                 
                                             
                                         sda4=Save+sda4
@@ -732,7 +684,9 @@ class compression:
                                         Save_V=""
                                         Times_of_compression+=1
                                         if  len(sda4)>len(sda2):
-                                        	sda4="11111111"+sda3                                        
+                                        	sda4="11111111"+sda3
+
+                                        #print(len(sda4))
                                         if len(sda4)<=496 or Times_of_compression==65535:
                                             Times_count=format(Times_of_compression,'016b')
                                             count_save=format(count4,'08b')
