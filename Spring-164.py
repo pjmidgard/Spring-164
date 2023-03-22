@@ -278,6 +278,7 @@ class compression:
                                 if assxw==1:
                                             assxw1=0
                                             #print(count4)
+                                            
                                             while assxw1!=50:
 	                                            #print(sda2)
 	                                            assxw=0
@@ -293,7 +294,7 @@ class compression:
 	                                            
 	                                            #######################################################Jurijus Pacalovas Exection Program######################################################################################
 	
-	
+	                                            
 	                                            lenf2=len(sda2)
 	                                            #print(lenf2)
 	                                            #print("lenf2")
@@ -571,7 +572,7 @@ class compression:
                                     #print(count4)
                                     #######################################################Jurijus Pacalovas Exection Program######################################################################################
 
-                                    
+                                   
                                     
                                     while block3<lenf2:
                                         count4+=1
