@@ -314,7 +314,7 @@ class compression:
                                             #print(Times_of_compression1)
 
                                             #print(count4)
-                                            if assxw1==50:
+                                            if assxw1==992:
                                                     assxw1=0
                                                     assxw=0
                                                     
@@ -516,9 +516,20 @@ class compression:
                                     #os.system("pause")
                                     
                                     sda2=sda3
+                                    n = int(sda2, 2)
+                                                                                                    
+                                            
+                                    qqwslenf=len(sda2)
+                                    qqwslenf=(qqwslenf/8)*2
+                                    qqwslenf=str(qqwslenf)
+                                    qqwslenf="%0"+qqwslenf+"x"
+                                    jl=binascii.unhexlify(qqwslenf % n)
+                                    #import paq
+                                    #jl= paq.compress(jl)
+                                    #print(len(jl))
                                     assxw=assxw+1
                                     #print(assxw)
-                                    if assxw==50:
+                                    if assxw==992:
                                            
                                         sda4=sda3
                                         #print(len(sda4))
