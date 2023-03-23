@@ -304,12 +304,7 @@ class compression:
                                                     #print(sda2)
                                                     assxw1=assxw1+1
                                                     #print(assxw1)
-                                                    n = int(sda3, 2)
-                                                    qqwslenf=len(sda3)
-                                                    qqwslenf=(qqwslenf/8)*2
-                                                    qqwslenf=str(qqwslenf)
-                                                    qqwslenf="%0"+qqwslenf+"x"
-                                                    jl=binascii.unhexlify(qqwslenf % n)
+
                                             #print(jl)
                                             #print(Times_of_compression1)
 
@@ -317,7 +312,12 @@ class compression:
                                             if assxw1==956:
                                                     assxw1=0
                                                     assxw=0
-                                                    
+                                                    n = int(sda3, 2)
+                                                    qqwslenf=len(sda3)
+                                                    qqwslenf=(qqwslenf/8)*2
+                                                    qqwslenf=str(qqwslenf)
+                                                    qqwslenf="%0"+qqwslenf+"x"
+                                                    jl=binascii.unhexlify(qqwslenf % n)                                                    
                                                     assxw2=1
                                                     if assxw2==1:
                                                         assx=10
@@ -519,11 +519,11 @@ class compression:
                                     n = int(sda2, 2)
                                                                                                     
                                             
-                                    qqwslenf=len(sda2)
-                                    qqwslenf=(qqwslenf/8)*2
-                                    qqwslenf=str(qqwslenf)
-                                    qqwslenf="%0"+qqwslenf+"x"
-                                    jl=binascii.unhexlify(qqwslenf % n)
+                                    #qqwslenf=len(sda2)
+                                    #qqwslenf=(qqwslenf/8)*2
+                                    #qqwslenf=str(qqwslenf)
+                                    #qqwslenf="%0"+qqwslenf+"x"
+                                    #jl=binascii.unhexlify(qqwslenf % n)
                                     #import paq
                                     #jl= paq.compress(jl)
                                     #print(len(jl))
