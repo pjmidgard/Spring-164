@@ -243,11 +243,11 @@ class compression:
                                                                 
                                                             elif e4[0:2]=="10":
                                                                 if count4==4:
-                                                                    e4=e4[2:]
+                                                                    e4=e4[3:]
                                                                 elif count4!=4:
                                                                     e4=e4[2:]
                                                                 if count4==4:
-                                                                    e7="00"+e4
+                                                                    e7="00"+e4+e4+e14[2:3]
                                                                 
                                                                 elif count4!=4:
                                                                     e7="10"+e4
@@ -314,7 +314,7 @@ class compression:
                                             #print(Times_of_compression1)
 
                                             #print(count4)
-                                            if assxw1==992:
+                                            if assxw1==956:
                                                     assxw1=0
                                                     assxw=0
                                                     
@@ -473,11 +473,11 @@ class compression:
                                             block3+=8
                                         elif e4[0:2]=="10":
                                             if count4==4:
-                                                e4=e4[2:]
+                                                e4=e4[3:]
                                             elif count4!=4:
                                                 e4=e4[2:]
                                             if count4==4:
-                                                sda3+="00"+e4
+                                                sda3+="00"+e4+e14[2:3]
                                                 count4=1
                                             elif count4!=4:
                                                 sda3+="10"+e4
@@ -529,7 +529,7 @@ class compression:
                                     #print(len(jl))
                                     assxw=assxw+1
                                     #print(assxw)
-                                    if assxw==992:
+                                    if assxw==956:
                                            
                                         sda4=sda3
                                         #print(len(sda4))
